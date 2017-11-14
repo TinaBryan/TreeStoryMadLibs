@@ -9,7 +9,11 @@ public class TreeStory {
 			  adjective - A description used to modify or describe a noun
 			  Enter your amazing code here!
 		*/
-		String ageAsString =console.readLine("How old are you?  ");
+		/*
+				set int to parse a string using class wrapper Integer.parseInt();
+				using the String variable ageAsString
+		*/
+		String ageAsString = console.readLine("How old are you?  ");
 		int age = Integer.parseInt(ageAsString);
 		if (age < 13) {
 			// Insert exit code
@@ -19,7 +23,16 @@ public class TreeStory {
 
 		String name = console.readLine("Enter a name:  ");
 		String adjective = console.readLine("Enter an adjective:  ");
-		String noun = console.readLine("Enter a noun:  ");
+		String noun;
+		boolean isInvalidWord;
+		do {
+			noun = console.readLine("Enter a noun:  ");
+			isInvalidWord = (noun.equalsIgnoreCase("dork") || 
+				  						 noun.equalsIgnoreCase("jerk"));
+			if (isInvalidWord) {
+				console.printf("That language is not allowed. Try again. \n\n");
+			}
+		} while(isInvalidWord);
 		String adverb = console.readLine("Enter an adverb:  ");
 		String verb = console.readLine("Enter a verb ending with -ing:  ");
 	}
